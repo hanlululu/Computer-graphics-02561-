@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+        attribute vec4 t_Position;
+        attribute vec4 t_Color;
+        varying vec4 fColor;
+        uniform float beta;
+        void main() {
+            fColor = t_Color;
+            gl_Position = t_Position + vec4(0.0, beta, 0.0, 0.0);
+        }
+        </script>
+        <script id="fragment-shader" type="x-shader/x-fragment">
+            precision mediump float;
+            varying vec4 fColor;
+            void main() {
+                gl_FragColor = fColor;
+            }
+        </script>
+    <head> 
+        <title>02561 - W01P5</title>
+        <script type="text/javascript" src="../../angelCommon/webgl-utils.js"></script>
+        <script type="text/javascript" src="../../angelCommon/initShaders.js"></script>
+        <script type="text/javascript" src="../../angelCommon/MV.js"></script>
+        <script type="text/javascript" src="W01P5.js"></script>
+    </head>
+<body>
+    <canvas id="webgl" width="512" height="512">
+        <!-- The following message is displayed if the browser doesn’t
+        -- support HTML5 -->
+        Sorry; your web browser does not support HTML5’s canvas element.
+        </canvas>
+    <br/>
+        <button id="BounceButton">Bounce</button>
+</body></html>
